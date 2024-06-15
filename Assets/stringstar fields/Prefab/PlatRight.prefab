@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 958056686979839262}
   - component: {fileID: 5386314745087580912}
-  - component: {fileID: 6871185735332039299}
   - component: {fileID: -7135117647136424962}
+  - component: {fileID: 6871185735332039299}
   - component: {fileID: -6953483222709025155}
   m_Layer: 0
   m_Name: PlatRight
@@ -88,25 +88,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!251 &6871185735332039299
-PlatformEffector2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 660539414848092193}
-  m_Enabled: 1
-  m_UseColliderMask: 1
-  m_ColliderMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_RotationalOffset: 0
-  m_UseOneWay: 1
-  m_UseOneWayGrouping: 0
-  m_SurfaceArc: 180
-  m_UseSideFriction: 0
-  m_UseSideBounce: 0
-  m_SideArc: 1
 --- !u!61 &-7135117647136424962
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -152,6 +133,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.064, y: 0.03}
   m_EdgeRadius: 0
+--- !u!251 &6871185735332039299
+PlatformEffector2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 660539414848092193}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RotationalOffset: 0
+  m_UseOneWay: 1
+  m_UseOneWayGrouping: 0
+  m_SurfaceArc: 150
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1
 --- !u!114 &-6953483222709025155
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -9,14 +9,15 @@ public class PMove : MonoBehaviour
     [Range(0f, 20f)] public float speed = 10f;
     [Range(0f, 10f)] public float jumpStrength;
     public SpriteRenderer SR;
-    public bool isGround;
     public int jumpCount;
     [Range(0f, 10f)] public float dashForce;
     public float dashCD;
     public int dashCount;
 
+    private bool isGround;
     private bool right;
     private bool left;
+    private bool CD = false;
 
     // Update is called once per frame
     void Update()
@@ -36,27 +37,39 @@ public class PMove : MonoBehaviour
         }
 
         if (Input.GetKeyDown(KeyCode.S))
+        {
             player.gravityScale = 5;
-
-        else if (Input.GetKeyUp(KeyCode.S))
+        
+        } else if (Input.GetKeyUp(KeyCode.S))
             player.gravityScale = 1;
 
-        // Dash
+        // TP
 
         right = SR.flipX.Equals(false);
         left = SR.flipX.Equals(true);
 
-        if (Input.GetKeyDown(KeyCode.LeftShift) && right && dashCount > 0)
+        if (Input.GetKeyDown(KeyCode.LeftShift) && right && dashCount > 0 && CD == false)
         {
             player.transform.Translate(dashForce, 0, 0);
             dashCount--;
+
+            CD = true;
+            Invoke("cooldown", dashCD);
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftShift) && left && dashCount > 0)
+        if (Input.GetKeyDown(KeyCode.LeftShift) && left && dashCount > 0 && CD == false)
         {
             player.transform.Translate(-dashForce, 0, 0);
             dashCount--;
+
+            CD = true;
+            Invoke("cooldown", dashCD);
         }
+    }
+
+    private void cooldown()
+    {
+        CD = false;
     }
 
     private void FixedUpdate()
