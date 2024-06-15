@@ -5,6 +5,7 @@ using UnityEngine;
 public class PMove : MonoBehaviour
 {
     public Rigidbody2D player;
+    public Animator moveAnim;
     private float move;
     [Range(0f, 20f)] public float speed = 10f;
     [Range(0f, 10f)] public float jumpStrength;
@@ -15,18 +16,27 @@ public class PMove : MonoBehaviour
     public int dashCount;
 
     private bool isGround;
-    private bool right;
-    private bool left;
-    private bool CD = false;
+    public bool right;
+    public bool left;
+    public bool CD = false;
 
     // Update is called once per frame
     void Update()
     {
         if (Input.GetKey(KeyCode.D))
+        {
             SR.flipX = false;
+            moveAnim.SetTrigger("goRun");
+        }   
 
         else if (Input.GetKey(KeyCode.A))
+        {
             SR.flipX = true;
+            moveAnim.SetTrigger("goRun");
+        }
+
+        else
+            moveAnim.SetTrigger("goIdle");
 
         // Jump
 
