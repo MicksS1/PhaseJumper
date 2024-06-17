@@ -9,13 +9,6 @@ public class TPDestroy : MonoBehaviour
     {
         Invoke("Delete", 0.6f);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     void Delete()
     {
         Destroy(gameObject);
