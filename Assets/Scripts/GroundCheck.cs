@@ -34,4 +34,14 @@ public class GroundCheck : MonoBehaviour
         }
 
     }
+
+    private void OnTriggerExit2D(Collider2D coll)
+    {
+        if (coll.gameObject.tag == "Ground")
+        {
+            PMove.isGround = false;
+            //Debug.Log(isGround);
+        }
+
+    }
 }

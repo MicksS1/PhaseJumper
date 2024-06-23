@@ -1,0 +1,79 @@
+using System.Collections;
+using System.Collections.Generic;
+using TMPro;
+using UnityEngine;
+using System.IO;
+using UnityEngine.SceneManagement;
+using static UnityEditor.PlayerSettings;
+
+public class SaveManager : MonoBehaviour
+{
+    public Scene activeScene;
+    private string level;
+    public CP_Behaviour CP;
+    public PMove PM;
+    public Timer timeData;
+    public GameManager gameManager;
+    public int loadSave;
+
+    private void Awake()
+    {
+        activeScene = SceneManager.GetActiveScene();
+        level = activeScene.name;
+
+        CP = GameObject.FindGameObjectWithTag("Checkpoint").GetComponent<CP_Behaviour>();
+        PM = GameObject.FindGameObjectWithTag("Player").GetComponent<PMove>();
+        timeData = GameObject.FindGameObjectWithTag("Timer").GetComponent<Timer>();
+
+        loadSave = PlayerPrefs.GetInt("loadSave");
+    }
+
+    // Start is called before the first frame update
+    void Start()
+    { 
+        //if (loadSave == 1)
+        //    LoadData();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+    
+    }
+
+    // auto-save from last checkpoint
+
+    public class PlayerData
+    {
+        public string level;
+        public Vector2 spawnPos;
+        public int deathCount;
+        public float timer;
+    }
+
+    public void SaveData()
+    {
+        PlayerData data = new PlayerData();
+        data.level = level;
+        data.spawnPos = CP.newPos;
+        data.deathCount = PM.deaths;
+        data.timer = timeData.time;
+
+        string PData = JsonUtility.ToJson(data);
+        File.WriteAllText(Application.dataPath + "/PlayerSaveFile.json", PData);
+        
+        Debug.Log(PData);
+    }
+
+    public void LoadData()
+    {
+        string PLoadData = File.ReadAllText(Application.dataPath + "/PlayerSaveFile.json");
+        PlayerData loadedData = JsonUtility.FromJson<PlayerData>(PLoadData);
+
+        CP.startPos = loadedData.spawnPos;
+        PM.deaths = loadedData.deathCount;
+        timeData.time = loadedData.timer;
+
+        Debug.Log(PLoadData);
+    }
+}

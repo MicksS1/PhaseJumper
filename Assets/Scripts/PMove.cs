@@ -5,10 +5,13 @@ using UnityEngine;
 
 public class PMove : MonoBehaviour
 {
+    [Header("Refs")]
     public Rigidbody2D player;
     public Animator moveAnim;
     public GameObject TP;
     private float move;
+
+    [Header("Movement")]
     [Range(0f, 20f)] public float speed = 10f;
     [Range(0f, 10f)] public float jumpStrength;
     public SpriteRenderer SR;
@@ -17,9 +20,11 @@ public class PMove : MonoBehaviour
     public float dashCD;
     public int dashCount;
 
+    [Header("Validation")]
     public bool isGround;
     public bool isObstacleR;
     public bool isObstacleL;
+    public int deaths = 0;
     private bool right;
     private bool left;
     private bool CD = false;
@@ -97,6 +102,17 @@ public class PMove : MonoBehaviour
         move = Input.GetAxisRaw("Horizontal");
         player.velocity = new Vector2(move * speed, player.velocity.y);
     }
+
+    public void resetDeath()
+    {
+        deaths = 0;
+    }
+
+    //private void OnTriggerEnter2D(Collider2D coll)
+    //{
+    //    if (coll.gameObject.tag == "VTrap" || coll.gameObject.tag == "HTrap")
+    //        deaths++;
+    //}
 
     //private void OnTriggerStay2D(Collider2D coll)
     //{

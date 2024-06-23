@@ -5,6 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
+  - Checkpoint
+  - HTrap
+  - VTrap
+  - Checker
+  - Timer
+  - SaveController
   layers:
   - Default
   - TransparentFX
