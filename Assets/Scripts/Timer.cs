@@ -15,6 +15,7 @@ public class Timer : MonoBehaviour
     {
         minute = 0;
         second = 0;
+        Time.timeScale = 1f;
     }
 
     // Update is called once per frame

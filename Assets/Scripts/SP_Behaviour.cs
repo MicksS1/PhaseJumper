@@ -18,7 +18,7 @@ public class SP_Behaviour : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.S))
         {
             plat.rotationalOffset = 180;
-            Invoke("platReset", 0.3f);
+            Invoke("platReset", 0.2f);
         }
 
         //else if (Input.GetKeyUp(KeyCode.S))

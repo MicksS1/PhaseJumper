@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8513954655383973169}
   - component: {fileID: 2022373863161751024}
+  - component: {fileID: 4536231668040293599}
   m_Layer: 0
   m_Name: Board
   m_TagString: Untagged
@@ -26,8 +27,8 @@ Transform:
   m_GameObject: {fileID: 6428544425688268476}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.24, y: -5.95, z: 0.22451138}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -6.24, y: -5.9844, z: 0.22451138}
+  m_LocalScale: {x: 1, y: 0.7875, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -64,7 +65,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.2197516, y: -0.14409947}
+  m_Offset: {x: -0.2197516, y: -0.1619854}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -75,5 +76,17 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5604968, y: 1.288199}
+  m_Size: {x: 0.5604968, y: 1.2524271}
   m_EdgeRadius: 0
+--- !u!114 &4536231668040293599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6428544425688268476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19c6c7954f8ec304db5b68477aecfc3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

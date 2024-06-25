@@ -11,6 +11,7 @@ TagManager:
   - Checker
   - Timer
   - SaveController
+  - Tut
   layers:
   - Default
   - TransparentFX

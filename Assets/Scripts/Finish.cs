@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Finish : MonoBehaviour
 {
+    public GameObject finishPanel;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,13 +22,15 @@ public class Finish : MonoBehaviour
     {
         if (coll.gameObject.tag == "Player")
         {
-            Time.timeScale = 0.5f;
-            Invoke("timeReset", 3f);
+            Time.timeScale = 0.2f;
+            Time.fixedDeltaTime = Time.timeScale * 0.02f;
+            Invoke("timeStop", 0.5f);
         }
     }
 
-    void timeReset()
+    void timeStop()
     {
-        Time.timeScale = 1f;
+        Time.timeScale = 0f;
+        finishPanel.SetActive(true);
     }
 }

@@ -75,7 +75,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 6
   m_Sprite: {fileID: 21300000, guid: 24418f39c28b0344fb643ab60d9f25cf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -169,3 +169,9 @@ MonoBehaviour:
   CP: {fileID: 8434718165427679762}
   CPAnim: {fileID: 482290861711960138}
   pos: {fileID: 8018868196646563720}
+  PMove: {fileID: 0}
+  SaveManager: {fileID: 0}
+  newPos: {x: 0, y: 0}
+  startPos: {x: 0, y: 0}
+  newX: 0
+  newY: 0

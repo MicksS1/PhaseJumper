@@ -13,7 +13,7 @@ public class PMove : MonoBehaviour
 
     [Header("Movement")]
     [Range(0f, 20f)] public float speed = 10f;
-    [Range(0f, 10f)] public float jumpStrength;
+    [Range(0f, 30f)] public float jumpStrength;
     public SpriteRenderer SR;
     public int jumpCount;
     [Range(0f, 10f)] public float dashForce;
@@ -56,10 +56,10 @@ public class PMove : MonoBehaviour
         }
 
         if (Input.GetKeyDown(KeyCode.S))
-            player.gravityScale = 5;
+            player.gravityScale = 8;
         
         else if (Input.GetKeyUp(KeyCode.S))
-            player.gravityScale = 1;
+            player.gravityScale = 4;
 
         // TP
 
@@ -69,25 +69,37 @@ public class PMove : MonoBehaviour
         right = SR.flipX.Equals(false);
         left = SR.flipX.Equals(true);
 
-        if (Input.GetKeyDown(KeyCode.LeftShift) && right && dashCount > 0 && CD == false && isObstacleR == false)
-        {
-            Instantiate(TP, player.transform.position, player.transform.rotation); // Dash animation
-            player.transform.Translate(dashForce, 0, 0);
-            dashCount--;
+        if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.J))
+            if (right && dashCount > 0 && CD == false && isObstacleR == false)
+            {
+                Instantiate(TP, player.transform.position, player.transform.rotation); // Dash animation
+                player.transform.Translate(dashForce, 0, 0);
+                dashCount--;
 
-            CD = true;
-            Invoke("cooldown", dashCD);
-        }
+                CD = true;
+                Invoke("cooldown", dashCD);
 
-        if (Input.GetKeyDown(KeyCode.LeftShift) && left && dashCount > 0 && CD == false && isObstacleL == false)
-        {
-            Instantiate(TP, player.transform.position, player.transform.rotation); // Dash animation
-            player.transform.Translate(-dashForce, 0, 0);
-            dashCount--;
+                //player.gravityScale = 2f;
+                //Invoke("resetGravity", 0.5f);
+            }
 
-            CD = true;
-            Invoke("cooldown", dashCD);
-        }
+        if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.J))
+            if (left && dashCount > 0 && CD == false && isObstacleL == false)
+            {
+                Instantiate(TP, player.transform.position, player.transform.rotation); // Dash animation
+                player.transform.Translate(-dashForce, 0, 0);
+                dashCount--;
+
+                CD = true;
+                Invoke("cooldown", dashCD);
+
+                //player.gravityScale = 2f;
+                //Invoke("resetGravity", 0.5f);
+            }
+
+        // Fall velocity limit
+
+        player.velocity = new Vector2(player.velocity.x, Mathf.Clamp(player.velocity.y, -16f, jumpStrength));
     }
 
     private void cooldown()
@@ -101,6 +113,11 @@ public class PMove : MonoBehaviour
 
         move = Input.GetAxisRaw("Horizontal");
         player.velocity = new Vector2(move * speed, player.velocity.y);
+    }
+
+    public void resetGravity()
+    {
+        player.gravityScale = 4;
     }
 
     public void resetDeath()
