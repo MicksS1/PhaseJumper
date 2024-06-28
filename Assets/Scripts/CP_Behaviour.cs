@@ -34,7 +34,9 @@ public class CP_Behaviour : MonoBehaviour
 
         Debug.Log("start:" + startPos);
         orPos = Player.transform.position;
-        CPPos = orPos;
+
+        PlayerPrefs.SetFloat("CheckpointX", orPos.x);
+        PlayerPrefs.SetFloat("CheckpointY", orPos.y);
     }
 
     // Update is called once per frame
