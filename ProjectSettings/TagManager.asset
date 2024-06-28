@@ -12,6 +12,7 @@ TagManager:
   - Timer
   - SaveController
   - Tut
+  - UI
   layers:
   - Default
   - TransparentFX

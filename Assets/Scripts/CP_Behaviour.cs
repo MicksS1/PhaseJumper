@@ -5,7 +5,7 @@ using UnityEngine;
 public class CP_Behaviour : MonoBehaviour
 {
     public GameObject Player;
-    public GameObject CP;
+    public GameObject CPoint;
     public Animator CPAnim;
     public Transform pos;
     public PMove PMove;
@@ -17,22 +17,20 @@ public class CP_Behaviour : MonoBehaviour
     public float newX;
     public float newY;
 
-    private void Awake()
-    {   
+    // Start is called before the first frame update
+    void Start()
+    {
         Player = GameObject.FindGameObjectWithTag("Player");
         PMove = GameObject.FindGameObjectWithTag("Player").GetComponent<PMove>();
         SaveManager = GameObject.FindGameObjectWithTag("SaveController").GetComponent<SaveManager>();
 
         if (SaveManager.loadSave == 1)
+        {
             SaveManager.LoadData();
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        if (SaveManager.loadSave == 1)
+            Debug.Log("jalans");
             Player.transform.position = SaveManager.CP.startPos;
-        //  ^ini harus SaveManager.CP.startPos, gbs startpos doang gtw knp alSKdhjkljashd
+            //  ^ini harus SaveManager.CP.startPos, gbs startpos doang gtw knp alSKdhjkljashd
+        }
 
         Debug.Log("start:" + startPos);
         orPos = Player.transform.position;
@@ -52,9 +50,11 @@ public class CP_Behaviour : MonoBehaviour
             PMove.deaths++;
             Player.transform.position = newPos;
             Player.SetActive(true);
+
+            AudioManager.instance.playSfx("Dead");
         }
 
-        if (CP.transform.position.Equals(CPPos) == false)
+        if (CPoint.transform.position.Equals(CPPos) == false)
             CPAnim.SetTrigger("GoInactive");
     }
 

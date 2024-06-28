@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level1.unity
     guid: 6c609d1aeeaf41640bd5b32bc7156267
+  - enabled: 1
+    path: Assets/Scenes/Level2.unity
+    guid: d76a717fa606f9047a9a74819f61cf44
+  - enabled: 0
+    path: Assets/Scenes/coba-coba.unity
+    guid: f18bcd1ea7bbbff489e46b1d1d2b1ab8
   m_configObjects: {}

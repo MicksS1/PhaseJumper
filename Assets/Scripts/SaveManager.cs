@@ -26,13 +26,13 @@ public class SaveManager : MonoBehaviour
         timeData = GameObject.FindGameObjectWithTag("Timer").GetComponent<Timer>();
 
         loadSave = PlayerPrefs.GetInt("loadSave");
+        PlayerPrefs.SetInt("FirstRun", 1);
     }
 
     // Start is called before the first frame update
     void Start()
-    { 
-        //if (loadSave == 1)
-        //    LoadData();
+    {
+
     }
 
     // Update is called once per frame
@@ -49,6 +49,22 @@ public class SaveManager : MonoBehaviour
         public Vector2 spawnPos;
         public int deathCount;
         public float timer;
+    }
+
+    public void firstLoad()
+    {
+        PlayerData firstData = new PlayerData();
+        firstData.level = null;
+        firstData.spawnPos = new Vector2(0, 0);
+        firstData.deathCount = 0;
+        firstData.timer = 0f;
+
+        string FData = JsonUtility.ToJson(firstData);
+        File.WriteAllText(Application.dataPath + "/PlayerSaveFile.json", FData);
+
+        Debug.Log(FData);
+
+        PlayerPrefs.SetInt("FirstRun", 0);
     }
 
     public void SaveData()

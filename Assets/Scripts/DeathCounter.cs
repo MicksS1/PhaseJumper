@@ -27,5 +27,6 @@ public class DeathCounter : MonoBehaviour
     public void AddDeath()
     {
         count.text = PMove.deaths.ToString();
+        //AudioManager.instance.playSfx("Dead");
     }
 }

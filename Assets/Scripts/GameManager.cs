@@ -12,6 +12,7 @@ using static UnityEditor.PlayerSettings;
 public class GameManager : MonoBehaviour
 {
     public GameObject menu;
+    public Finish fin;
     public Scene activeScene;
     public int loadSave;
     private string levelData;
@@ -28,13 +29,22 @@ public class GameManager : MonoBehaviour
         levelName = loadedData.level;
     }
 
+    private void Start()
+    {
+        //if (activeScene.name == "MenuScene")
+        //{
+        //    SceneManager.LoadScene("MenuScene");
+        //    Time.timeScale = 1.0f;
+        //}
+    }
+
     // Update is called once per frame
     void Update()
     {
-        if (menu.activeSelf == false && activeScene.name != "MenuScene" && Input.GetKeyDown(KeyCode.Escape))
+        if (menu.activeSelf == false && activeScene.name != "MenuScene" && Input.GetKeyDown(KeyCode.Escape) && fin.isFinish == false)
             Pause();
         
-        else if (menu.activeSelf && activeScene.name != "MenuScene" && Input.GetKeyDown(KeyCode.Escape))
+        else if (menu.activeSelf && activeScene.name != "MenuScene" && Input.GetKeyDown(KeyCode.Escape) && fin.isFinish == false)
             Resume();
     }
 
@@ -42,11 +52,13 @@ public class GameManager : MonoBehaviour
     {
         PlayerPrefs.SetInt("loadSave", 0);
         SceneManager.LoadScene(sceneName);
+        AudioManager.instance.playSfx("Click");
     }
 
     public void ChangeToSavedScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
+        AudioManager.instance.playSfx("Click");
     }
 
     public void LoadScene()
@@ -67,6 +79,7 @@ public class GameManager : MonoBehaviour
 
     public void QuitApp()
     {
+        AudioManager.instance.playSfx("Click");
         Application.Quit();
     }
 
@@ -74,12 +87,14 @@ public class GameManager : MonoBehaviour
     {
         menu.SetActive(true);
         Time.timeScale = 0f;
+        AudioManager.instance.playSfx("Click");
     }
 
     public void Resume()
     {
         menu.SetActive(false);
         Time.timeScale = 1f;
+        AudioManager.instance.playSfx("Click");
     }
 
     public void RestartLevel()
@@ -88,5 +103,7 @@ public class GameManager : MonoBehaviour
 
         //menu.SetActive(false);
         Time.timeScale = 1f;
+
+        AudioManager.instance.playSfx("Click");
     }
 }

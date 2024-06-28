@@ -53,6 +53,8 @@ public class PMove : MonoBehaviour
         {
             player.velocity = new Vector2(player.velocity.x, jumpStrength);
             jumpCount--;
+
+            AudioManager.instance.playSfx("Jump");
         }
 
         if (Input.GetKeyDown(KeyCode.S))
@@ -79,6 +81,8 @@ public class PMove : MonoBehaviour
                 CD = true;
                 Invoke("cooldown", dashCD);
 
+                AudioManager.instance.playSfx("TP");
+
                 //player.gravityScale = 2f;
                 //Invoke("resetGravity", 0.5f);
             }
@@ -92,6 +96,8 @@ public class PMove : MonoBehaviour
 
                 CD = true;
                 Invoke("cooldown", dashCD);
+
+                AudioManager.instance.playSfx("TP");
 
                 //player.gravityScale = 2f;
                 //Invoke("resetGravity", 0.5f);
