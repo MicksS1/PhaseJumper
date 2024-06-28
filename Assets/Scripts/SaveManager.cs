@@ -4,7 +4,6 @@ using TMPro;
 using UnityEngine;
 using System.IO;
 using UnityEngine.SceneManagement;
-using static UnityEditor.PlayerSettings;
 
 public class SaveManager : MonoBehaviour
 {

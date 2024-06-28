@@ -34,6 +34,7 @@ public class CP_Behaviour : MonoBehaviour
 
         Debug.Log("start:" + startPos);
         orPos = Player.transform.position;
+        CPPos = orPos;
     }
 
     // Update is called once per frame

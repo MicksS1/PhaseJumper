@@ -6,7 +6,6 @@ using UnityEngine.UI;
 using TMPro;
 using System.IO;
 using static SaveManager;
-using static UnityEditor.PlayerSettings;
 //using System.Diagnostics;
 
 public class GameManager : MonoBehaviour
