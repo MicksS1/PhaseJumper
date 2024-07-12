@@ -91,4 +91,21 @@ public class SaveManager : MonoBehaviour
 
         Debug.Log(PLoadData);
     }
+
+    //public void save()
+    //{
+    //    PlayerData coba = new PlayerData();
+    //    coba.level = level;
+
+    //    string file = JsonUtility.ToJson(coba);
+    //    File.WriteAllText("/saveFile", file);
+    //}
+
+    //public void load()
+    //{
+    //    string lod = File.ReadAllText("/saveFile");
+    //    PlayerData data = JsonUtility.FromJson<PlayerData>(lod);
+
+    //    data.level = level;
+    //}
 }
