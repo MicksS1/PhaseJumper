@@ -19,5 +19,4 @@ The gameplay of this game is all about teleportation and parkour! Do your best t
 
 <h3>Setup</h3>
 
-- If you want to play the game, make sure to download the "PhaseJumper-Built.zip" file
-- Extract the folder, then run the .exe file
+If you want to try the game out, to the right of the list of files, click "Releases".
