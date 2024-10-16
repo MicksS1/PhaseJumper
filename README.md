@@ -88,10 +88,12 @@ private void OnTriggerStay2D(Collider2D coll)
 
 |  Script       | Description                                                  |
 | ------------------- | ------------------------------------------------------------ |
-| `GameManager.cs` | Manages the game flow such as timers, difficulty levels, networking, etc. |
-| `SaturationChanger.cs`  | Controls the saturation levels of the 3D environment via post-processing. |
-| `UIHandler.cs`  | Manages various UI elements and organizes them into sequences. |
-| `etc`  | |
+| `GameManager.cs` | Manages the game flow, main menu, pause menu, etc. |
+| `AudioManager.cs`  | Responsible for all the audio in the game. |
+| `PMove.cs`  | Manages all player movements. |
+| `SaveManager.cs`  | Manages the logic behind saving the player's data. |
+| `CP_Behaviour.cs`  | Manages the behaviour of checkpoints |
+| `etc`  |
 
 <br>
 
